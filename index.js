@@ -1,4 +1,5 @@
 // server.js (Node.js + Express)
+require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const app = express();
@@ -18,6 +19,14 @@ const transporter = nodemailer.createTransport({
     user: process.env.MY_EMAIL,
     pass: process.env.EMAIL_PASS
   }
+})
+
+app.get("/api/message", (req, res) => {
+  res.json({
+      status : 200,
+      success : true,
+      reply : ` we got your get request...!`
+  })
 })
 
 app.post("/api/message", async (req, res) => {
