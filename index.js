@@ -29,6 +29,13 @@ app.get("/api/message", (req, res) => {
   })
 })
 
+app.get("/api/debug-env", (req, res) => {
+  res.json({
+    MY_EMAIL: process.env.MY_EMAIL ? "✅ Loaded" : "❌ Not Found",
+    EMAIL_PASS: process.env.EMAIL_PASS ? "✅ Loaded" : "❌ Not Found"
+  });
+});
+
 app.post("/api/message", async (req, res) => {
   const {name, email, mailSub, message} = req.body;
   console.log(`senderName : ${name}\nsenderEmail : ${email}`);
