@@ -62,7 +62,11 @@ app.post("/api/message", async (req, res) => {
     })
   }catch(err){
     console.error("Mail error:", err);
-    res.status(500).json({ success: false, message: "Mail sending failed!" });
+    res.status(500).json({ 
+      success: false, 
+      message: "Mail sending failed!",
+      error : err 
+    });
   }
 
   
