@@ -5,8 +5,19 @@ const cors = require("cors");
 const app = express();
 const nodemailer = require("nodemailer");
 
+const allowedOrigins = [
+  "https://yograj-portfolio-654cad.netlify.app/",
+  "http://localhost:3000"
+];
+
 app.use(cors({
-  origin: "http://localhost:3000",
+  origin: (origin, callBack) => {
+    if( !origin || allowedOrigins.includes(origin)){
+      callBack(null, true)
+    }else{
+      callBack(new Error("CORS not allowed for this origin"));
+    }
+  },
   methods: ["GET", "POST"],
   allowedHeaders: ["Content-Type"]
 })); // React aur Node connect karne ke liye zaroori
