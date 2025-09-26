@@ -48,8 +48,9 @@ app.get("/api/debug-env", (req, res) => {
 });
 
 app.post("/api/message", async (req, res) => {
+  console.log(req.body)
   const {name, email, mailSub, message} = req.body;
-  // console.log(`senderName : ${name}\nsenderEmail : ${email}`);
+  console.log(`senderName : ${name}\nsenderEmail : ${email}`);
 
   try{
 
