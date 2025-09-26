@@ -6,7 +6,7 @@ const app = express();
 const nodemailer = require("nodemailer");
 
 const allowedOrigins = [
-  "https://yograj-portfolio-654cad.netlify.app/",
+  "https://yograj-portfolio-2edce5.netlify.app",
   "http://localhost:3000"
 ];
 
@@ -49,7 +49,7 @@ app.get("/api/debug-env", (req, res) => {
 
 app.post("/api/message", async (req, res) => {
   const {name, email, mailSub, message} = req.body;
-  console.log(`senderName : ${name}\nsenderEmail : ${email}`);
+  // console.log(`senderName : ${name}\nsenderEmail : ${email}`);
 
   try{
 
